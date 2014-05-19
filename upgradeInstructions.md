@@ -2,6 +2,41 @@
 
 During the beta period of Sequence (versions prior to v1.0), backwards compatibility is not a priority. Some newer versions of the Sequence beta may not be compatible with existing implementations. Should you want to upgrade to the latest version, please follow the below instructions to upgrade for each subsequent release.
 
+##Upgrading to v1.0 (Required)
+
+1. In the version 1.0 release, sequence.jquery.js and sequence.jquery-min.js were renamed to jquery.sequence.js and jquery.sequence-min.js. Any existing themes that are being upgraded to v1.0 will need to have these filenames changed.
+
+##Upgrading to v0.9.1
+
+The option `autoPlay` is now `false` by default. If you're existing theme relies on the autoPlay feature and you haven't specified `autoPlay: true` in your options, you'll need to do so with v0.9.1. Example:
+
+var options = {
+	autoPlay: true
+}
+
+##Upgrading to v0.9 (Required)
+
+1.	Lots of class names are now prefixed with `sequence-`. If you're using any of the following class names with Sequence, you'll need to prefix them with `sequence-`: 
+	- `.next`
+	- `.prev`
+	- `.pause`
+	- `.paused`
+	- `.pause-icon`
+	- `.pagination`
+	- `.destroyed`
+	- `.preloader`
+
+	Example: `.next` will become `.sequence-next`, and so on.
+
+2.	The top level `<ul>` within the Sequence element **must** now be given a class of `.sequence-canvas`. This is to allow for other `<ul>` elements to be placed within the Sequence element. Example:
+	
+		<div id="sequence">
+			<ul class="sequence-canvas">
+				<li>Frame 1</li>
+				<li>Frame 2</li>
+			</ul>
+		</div>
+
 ##Upgrading to v0.8.5
 In v0.8.5, the following two lines were removed from sequence.jquery.js:
 

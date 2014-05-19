@@ -1,14 +1,14 @@
 $(document).ready(function(){
     var options = {
+        autoPlay: true,
         nextButton: true,
         prevButton: true,
         preloader: true,
-        navigationSkipThreshold: 1000,
-        fadeFrameWhenSkipped: false
+        navigationSkip: false
     };
     var sequence = $("#sequence").sequence(options).data("sequence");
 
     sequence.afterLoaded = function(){
-        $(".prev, .next").fadeIn(500);
+        $(".sequence-prev, .sequence-next").fadeIn(500);
     }
 });
